@@ -771,9 +771,8 @@ Players.LocalPlayer.leaderstats.Raised.Changed:Connect(function()
         local a11 = ((a*40/100)-a)
         local a12 = (a - a11)
         local a13 = (a12 - a)
-        local a14 = (math.floor (a13+0.5))
         
-        webhook(tostring("╔🛎Пришёл донат!🛎\n║💸 Поднято ⏣: " .. tostring(Players.LocalPlayer.leaderstats.Raised.Value - RaisedC) .. '\n║💸Всего ⏣: ' .. tostring(Players.LocalPlayer.leaderstats.Raised.Value) ..'\n║:bust_in_silhouette:Аккаунт: ' .. Players.LocalPlayer.DisplayName .. ' (' .. Players.LocalPlayer.Name .. ')'.. '\n╚💲После комиссии: ' .. a14))
+        webhook(tostring("╔🛎Пришёл донат!🛎\n║💸 Поднято ⏣: " .. tostring(Players.LocalPlayer.leaderstats.Raised.Value - RaisedC) .. '\n║💸Всего ⏣: ' .. tostring(Players.LocalPlayer.leaderstats.Raised.Value) ..'\n║:bust_in_silhouette:Аккаунт: ' .. Players.LocalPlayer.DisplayName .. ' (' .. Players.LocalPlayer.Name .. ')'.. '\n╚💲После комиссии: ' .. a13))
     end
     if getgenv().settings.donationJump then
         task.spawn(function()
