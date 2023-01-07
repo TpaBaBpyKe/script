@@ -55,6 +55,7 @@ local booths = { ["1"] = "72, 3, 36",
 local queueonteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 local httprequest = (syn and syn.request) or http and http.request or http_request or (fluxus and fluxus.request) or request
 local httpservice = game:GetService('HttpService')
+queueonteleport("https://raw.githubusercontent.com/TpaBaBpyKe/script/main/aboba.lua")
 local library = loadstring(game:HttpGet("https://gist.githubusercontent.com/TpaBaBpyKe/cd99f5eea66bf46d5139495b3aaac6c1/raw/fbbd36b3654eee6cd27df5760045df43ab4a4ec0/ui-engine-v2.lua"))()
 
 local function claimGifts()
@@ -766,14 +767,7 @@ Players.LocalPlayer.leaderstats.Raised.Changed:Connect(function()
     if getgenv().settings.webhookToggle and getgenv().settings.webhookBox then
         local LogService = Game:GetService("LogService")
         local logs = LogService:GetLogHistory()
-
-        local a = Players.LocalPlayer.leaderstats.Raised.Value - RaisedC
-        local a11 = ((a*40/100)-a)
-        local a12 = (a - a11)
-        local a13 = (a12 - a)
-	local a14 = (math.floor (a13+0.5))
-        
-        webhook(tostring("╔🛎Пришёл донат!🛎\n║💸 Поднято ⏣: " .. tostring(Players.LocalPlayer.leaderstats.Raised.Value - RaisedC) .. '\n║💸Всего ⏣: ' .. tostring(Players.LocalPlayer.leaderstats.Raised.Value) ..'\n║:bust_in_silhouette:Аккаунт: ' .. Players.LocalPlayer.DisplayName .. ' (' .. Players.LocalPlayer.Name .. ')'.. '\n╚💲После комиссии: ' .. a14))
+        webhook(tostring("╔🛎Пришёл донат!🛎\n║💸 Поднято ⏣: " .. tostring(Players.LocalPlayer.leaderstats.Raised.Value - RaisedC) .. '\n║💸Всего ⏣: ' .. tostring(Players.LocalPlayer.leaderstats.Raised.Value) ..'\n╚:bust_in_silhouette:Аккаунт: ' .. Players.LocalPlayer.DisplayName .. ' (' .. Players.LocalPlayer.Name .. ')'))
     end
     if getgenv().settings.donationJump then
         task.spawn(function()
@@ -795,7 +789,7 @@ end
 end)
 update()
 
-game:GetService("CoreGui").imgui.Windows.Window.Title.Text = "PLS DONATE - TpaBa v0.91"
+game:GetService("CoreGui").imgui.Windows.Window.Title.Text = "PLS DONATE - TpaBa v0.9"
 
 while task.wait(getgenv().settings.serverHopDelay * 60) do
     if not hopTimer then
