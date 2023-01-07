@@ -379,7 +379,7 @@ end,
     ["clear"] = false
 })
 goalBox.Text = getgenv().settings.goalBox
-boothTab:AddLabel("Кастомный текст на табличке:")
+boothTab:AddLabel("Кастомный текст на стойке:")
 local customBoothText = boothTab:AddConsole({
 	["y"] = 50,
 	["source"] = "",
@@ -767,7 +767,14 @@ Players.LocalPlayer.leaderstats.Raised.Changed:Connect(function()
     if getgenv().settings.webhookToggle and getgenv().settings.webhookBox then
         local LogService = Game:GetService("LogService")
         local logs = LogService:GetLogHistory()
-        webhook(tostring("╔🛎Пришёл донат!🛎\n║💸 Поднято ⏣: " .. tostring(Players.LocalPlayer.leaderstats.Raised.Value - RaisedC) .. '\n║💸Всего ⏣: ' .. tostring(Players.LocalPlayer.leaderstats.Raised.Value) ..'\n╚:bust_in_silhouette:Аккаунт: ' .. Players.LocalPlayer.DisplayName .. ' (' .. Players.LocalPlayer.Name .. ')'))
+
+	local a = Players.LocalPlayer.leaderstats.Raised.Value - RaisedC
+        local a11 = ((a*40/100)-a)
+        local a12 = (a - a11)
+        local a13 = (a12 - a)
+        local a14 = (math.floor (a13+0.5))
+        
+        webhook(tostring("╔🛎Пришёл донат!🛎\n║💸 Поднято ⏣: " .. tostring(Players.LocalPlayer.leaderstats.Raised.Value - RaisedC) .. '\n║⏣После комиссии: ' .. a14 .. '\n║💸Всего ⏣: ' .. tostring(Players.LocalPlayer.leaderstats.Raised.Value) ..'\n╚:bust_in_silhouette:Аккаунт: ' .. Players.LocalPlayer.DisplayName .. ' (' .. Players.LocalPlayer.Name .. ')'))
     end
     if getgenv().settings.donationJump then
         task.spawn(function()
@@ -789,7 +796,7 @@ end
 end)
 update()
 
-game:GetService("CoreGui").imgui.Windows.Window.Title.Text = "PLS DONATE - TpaBa v0.9"
+game:GetService("CoreGui").imgui.Windows.Window.Title.Text = "PLS DONATE - TpaBa v0.92"
 
 while task.wait(getgenv().settings.serverHopDelay * 60) do
     if not hopTimer then
